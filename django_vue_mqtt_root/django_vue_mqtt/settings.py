@@ -37,13 +37,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'automation'
-    'rest_framework'
+    #  'automation.apps.AutomationConfig',
+    'rest_framework',
+    'corsheaders',
+    'task',
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+# Add 127.0.0.1 to ALLOWED_HOSTS
+ALLOWED_HOSTS = ['127.0.0.1']
+
+# Add 'corsheaders.middleware.CorsMiddleware'. over 'django.middleware.common.CommonMiddleware' in the MIDDLEWARE block:
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
